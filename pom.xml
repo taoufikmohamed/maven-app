@@ -15,6 +15,20 @@
       <scope>test</scope>
     </dependency>
   </dependencies>
+
+
+    <distributionManagement>
+        <repository>
+            <id>local-repo</id>
+            <url>file:///C:/maven-repo/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>local-snapshot-repo</id>
+            <url>file:///C:/maven-repo/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
+
+  
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
