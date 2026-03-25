@@ -12,8 +12,20 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repository
-      uses: actions/checkout@v4
+    #- name: Checkout repository
+    - uses: actions/checkout@v4
+    - uses: taoufikmohamed/securityauditor@v1.1.0
+      with:
+          repo-path: '.'
+          mode: 'scan'
+          output-path: 'security-report.json'
+
+    - name: Upload report
+      if: always()
+      uses: actions/upload-artifact@v4
+      with:
+          name: security-reports
+          path: security-report.json
 
     - name: Set up JDK 17
       uses: actions/setup-java@v4
